@@ -1,0 +1,78 @@
+Given a number n, check if it is divisible by 8.
+
+Input:
+The first line of the input contains an integer T denoting the number of test cases. For each test case, there is an integer n whose divisibility we need to check. 
+
+Output:
+For each test case, the output is 1 if the number is divisible by 8 else -1.
+
+Constraints:
+1<=T<=100
+
+1<=digits in n<1000
+
+Example:
+Input:
+2
+16
+15
+Output:
+1
+-1
+
+CODE:
+
+/*package whatever //do not write package name here */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) {
+		//code
+		Scanner in = new Scanner(System.in);
+		int t=in.nextInt();
+		while(t--!=0)
+		{
+		    String n=in.next();
+		    if(n.length()<3)
+		    {
+		        int j=Integer.parseInt(n);
+		        if((j%8)==0)
+		        {
+		            System.out.println(1);
+		        }
+		        else
+		        {
+		            System.out.println(-1);
+		        }
+		    }
+		    
+		    else
+		    {
+		        String last="";
+		        String s=String.valueOf(n);
+		        last=s.substring(s.length()-3);
+		        int i=Integer.parseInt(last);
+		        if((i%8)==0)
+		        {
+		            System.out.println(1);
+		        }
+		        else
+		        {
+		            System.out.println(-1);
+		        }
+		        
+		        
+		    }
+		        
+		        
+		        
+		    
+		    
+		     
+		}
+		
+	}
+}
