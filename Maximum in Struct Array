@@ -1,0 +1,76 @@
+Given a struct array of type Height, having two elements feet and inches. Find the maximum height, where height is calculated sum of feet and inches after converting feet into inches.
+
+Input:
+First line of input contains number of testcases. For each testcase, first line of input contains N, number of given heights. Next line contains 2*N number of elements (feet and inches for each N).
+
+Output:
+Output maximum height from array.
+
+Your Task: Your task is to only complete the function of find maximum height from given array.
+
+Constraints:
+1<=T<=100
+1<=N<=105
+0<=Feet, Inches<=105
+
+Example:
+Input:
+2
+2
+1 2 2 1
+4
+3 5 7 9 5 6 5 5
+Output:
+25
+93
+
+Explanation:
+Testcase 1: (1, 2) and (2, 1) are respective given heights. After converting both heigths in to inches, we get 14 and 25 as respective heights. So, 25 is the maximum height.
+
+CODE:
+
+
+/*Please note that it's Function problem i.e.
+you need to write your solution in the form of Function(s) only.
+Driver Code to call/invoke your function is mentioned above.*/
+
+/*
+Class of the element of the array is as
+class Height {
+	int feet;
+	int inches;
+	public Height(int ft, int inc)
+	{
+	    feet = ft;
+	    inches = inc;
+	}
+}
+*/
+// function must return the maximum Height
+// return the height in inches
+class GfG
+{
+    public static int findMax(Height arr[], int n)
+    {  int i,j,max=0;
+       int narr[]=new int[n];
+       for(i=0;i<n;i++)
+       {
+           narr[i]=arr[i].feet*12+arr[i].inches;
+           
+       }
+      
+       
+        for(j=0;j<n;j++)
+           {
+            if(narr[j]>max)
+               {
+                   max=narr[j];
+               }
+        
+           }
+           return max;
+       
+       
+    }
+    
+}
