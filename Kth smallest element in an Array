@@ -1,0 +1,52 @@
+Given an array arr[] and a number K where K is smaller than size of array, the task is to find the Kth smallest element in the given array. It is given that all array elements are distinct.
+
+/*package whatever //do not write package name here */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.util.stream.Collectors;
+
+class GFG {
+   
+   public static int findKthSmallest(List<Integer> A, int k)
+	{
+		
+		PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());
+		pq.addAll(A.subList(0, k));
+
+		
+		for (int i = k; i < A.size(); i++)
+		{
+			
+			if (A.get(i) < pq.peek())
+			{
+				
+				pq.poll();
+				pq.add(A.get(i));
+			}
+		}
+
+		
+		return pq.peek();
+	}
+  
+	public static void main (String[] args) {
+		//code
+		Scanner sc=new Scanner(System.in);
+		int t=sc.nextInt();
+		while(t-->0){
+		    int n=sc.nextInt();
+		    Integer arr[]=new Integer[n];
+		    for(int i=0;i<n;i++){
+		        arr[i]=sc.nextInt();
+		    }
+		    int k=sc.nextInt();
+		    List<Integer> A = Arrays.asList(arr);
+		    
+		    System.out.println(findKthSmallest(A, k));
+		    
+		}
+		    
+		}
+	}
