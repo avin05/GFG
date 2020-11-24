@@ -1,0 +1,20 @@
+static boolean hasCycle(SinglyLinkedListNode head) {
+       
+        SinglyLinkedListNode sp=head;
+        SinglyLinkedListNode fp=head;
+        int flag=0;
+        while(sp!=null && fp!=null &&fp.next!=null){
+            sp=sp.next;
+            fp=fp.next.next;
+            if(sp==fp){
+                flag=1;
+                break;
+            }
+        }
+        if(flag==1)
+            return true;
+        else
+            return false;
+
+
+    }
