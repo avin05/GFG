@@ -1,0 +1,25 @@
+ public static void removeLoop(Node head){
+        // code here
+        // remove the loop without losing any nodes
+        Node sp=head,fp=head;
+        int flag=0;
+        while(sp!=null && fp!=null && fp.next!=null){
+            sp=sp.next;
+            fp=fp.next.next;
+            if(sp==fp){
+                flag=1;
+                break;
+            }
+        }
+        if(flag==1){
+          sp=head;
+          while(sp!=fp){
+              sp=sp.next;
+              fp=fp.next;
+          }
+          while(fp.next!=sp){
+              fp=fp.next;
+          }
+          fp.next=null;
+        }
+    }
