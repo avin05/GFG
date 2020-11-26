@@ -1,0 +1,20 @@
+ boolean isPalindrome(Node head) 
+    {
+        //Your code here
+        Stack<Integer> stack = new Stack<>();
+        Node temp=head;
+        while(temp!=null){
+            stack.push(temp.data);
+            temp=temp.next;
+        }
+        Node temp1=head;
+        while(temp1!=null){
+            int p=stack.pop();
+            if(temp1.data==p){
+                temp1=temp1.next;
+            }
+            else
+                return false;
+        }
+        return true;
+    }    
