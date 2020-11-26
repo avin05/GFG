@@ -1,0 +1,9 @@
+ void deleteNode(Node node)
+    {
+         // Your code here
+         Node temp1=node,temp2=node;
+         temp2=temp2.next;
+         temp1.data=temp2.data;
+         temp1.next=temp2.next;
+         temp2.next=null;
+    }
