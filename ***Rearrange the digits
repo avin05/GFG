@@ -1,0 +1,32 @@
+Given a number N, find the smallest number which can be obtained by rearranging the digits of N. The generated number should not have any leading zeroes.
+
+Example 1:
+
+Input: N = 846903
+Output:304689
+
+Example 2:
+
+Input: N = 55010
+Output:10055
+   
+   
+   
+   public String smallestnum(String N)
+    {
+       //code here
+      char arr[]=N.toCharArray();
+      Arrays.sort(arr);
+      int k=0,flag=0;
+      while(arr[k]=='0'){
+           k++;
+           flag=1;
+       }
+       if(flag==1){
+       char temp=arr[k];
+       arr[0]=temp;
+       arr[k]='0';
+           
+       }
+       return new String(arr);
+    }
