@@ -1,0 +1,37 @@
+static int findMissing(int arr[], int size)
+    {
+       
+       // Your code here
+       int n=size;
+       int ans=-1;
+       int smallest=999999;
+       int largest=1;
+       for(int i=0;i<n;i++){
+           if(arr[i]>0){
+               if(arr[i]<smallest)
+               {
+                   smallest=arr[i];
+               }
+               if(arr[i]>largest){
+                   largest=arr[i];
+               }
+           }
+       }
+       if(smallest!=1){
+           return 1;
+       }
+       Set<Integer> set=new HashSet<>();
+       for(int j=0;j<n;j++){
+           set.add(arr[j]);
+       }
+       
+       for(int k=smallest;k<=largest+1;k++){
+           if(!set.contains(k)){
+               ans=k;
+               break;
+           }
+       }
+       return ans;
+       
+       
+    }
