@@ -1,0 +1,9 @@
+ public static boolean areRotations(String s1, String s2 )
+    {
+        // Your code here
+        int n=s1.length();
+        int m=s2.length();
+        
+        return (n==m && (s1+s1).indexOf(s2)!=-1);
+        
+    }
