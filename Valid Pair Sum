@@ -1,0 +1,16 @@
+ static long ValidPair(int a[], int n) 
+	{ 
+	    // Your code goes here
+	    long count=0;
+	    Arrays.sort(a);
+	    int p=0,q=n-1;
+	    while(p<q){
+	        if(a[p]+a[q]>0){
+	            count+=q-p;
+	            q--;
+	        }
+	        else
+	            p++;
+	    }
+	    return count;
+	}
