@@ -1,0 +1,18 @@
+static int maxCandy(int height[], int n) 
+	{ 
+	    // Your code goes here
+	    int i=0,j=n-1,sum=0;
+	    while(i<j){
+	        int width=j-i-1;
+	        int h=Math.min(height[i],height[j]);
+	        int temp=h*width;
+	        sum=Math.max(sum,temp);
+	        if(height[i]<height[j]){
+	            i++;
+	        }
+	        else
+	            j--;
+	    }
+	    return sum;
+	    
+	}
