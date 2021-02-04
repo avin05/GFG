@@ -1,0 +1,15 @@
+static int repeatedStringMatch(String A, String B) 
+	{ 
+        // Your code goes here
+        String temp=A;
+        int n=B.length()/A.length();
+        int count=1;
+        for(int i=0;i<n+2;i++){
+            if(A.contains(B))
+                return count;
+            else
+                A+=temp;
+                count++;
+        }
+        return -1;
+	} 
