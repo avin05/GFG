@@ -1,0 +1,25 @@
+	static int RulingPair(int arr[], int n) { 
+        // Your code goes here
+        HashMap<Integer,Integer> h=new HashMap<>();
+        int sum=-1;
+        for(int i : arr)
+        {
+            int dig=0;
+            int num=i;
+            while(i!=0)
+            {
+                dig+=(i%10);
+                i=i/10;
+            }
+            if(h.containsKey(dig))
+            {
+                int curr=h.get(dig);
+                sum=Math.max(sum,curr+num);
+                if(num>curr)
+                  h.put(dig,num);
+            }
+            else
+                h.put(dig,num);
+        }
+        return sum;
+	}    
