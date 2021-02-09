@@ -1,0 +1,24 @@
+static int countTriplets(Node head, int x) 
+    { 
+        //code here.
+        Node temp=head;
+        int count=0;
+        
+        HashSet<Integer> hs=new HashSet<Integer>();
+        
+        while(temp!=null){
+            Node temp1=temp.next;
+            
+            while(temp1!=null){
+                if(hs.contains(x-(temp.data+temp1.data))){
+                    count++;
+                }
+                temp1=temp1.next;
+            }
+            hs.add(temp.data);
+            temp=temp.next;
+        }
+          
+        return count;
+    } 
+    
