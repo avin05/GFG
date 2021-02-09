@@ -1,0 +1,21 @@
+ public static int countKdivPairs(int arr[], int n, int k)
+    {
+        //code here
+       
+       int count=0;
+       
+       int arr1[]=new int[k];
+       
+       for(int i=0;i<n;i++){
+           int rem=arr[i]%k;
+           arr1[rem]++;
+       }
+        count+=(arr1[0]*(arr1[0]-1))/2;
+       for(int j=1; j<=k/2 && j!=k-j; j++){
+         count+=arr1[j]*arr1[k-j];
+     }
+    if(k%2==0)
+        count+=(arr1[k/2]*(arr1[k/2]-1))/2;
+       
+       return count;
+    }
