@@ -1,0 +1,34 @@
+ static Long[] distributeCandies(int N, int K) {
+        // code here
+        Long[] res= new Long[K];
+        for(int j=0;j<K;j++){
+            res[j]=(long)0;
+        }
+        long n=N;
+        long k=K;
+        int i=0;
+        long loops=0;
+        
+        while(n>0){
+            
+            if(i==k){
+                i=0;
+                loops++;
+            }
+            long cur=(loops * k)+(i+1);
+            
+            if(n-cur<0){
+                res[i]+=n;
+            }
+            else{
+                res[i]+=cur;
+            }
+            i++;
+            n-=cur;
+        
+        
+       
+        
+    }
+    return res;
+    }
