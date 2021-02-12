@@ -1,0 +1,17 @@
+ static boolean recreationalSpot(int[] arr , int n){
+        // Your code goes here 
+        
+        int min=arr[0],max=arr[0];
+        
+        for(int i=1;i<n;i++){
+            
+            min=Math.min(arr[i],min);
+            max=Math.max(arr[i],max);
+            
+            if(arr[i]<max && min< arr[i])
+                return true;
+
+        }
+        return false;
+
+    }
