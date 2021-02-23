@@ -1,0 +1,15 @@
+static boolean isSame(Node node1, Node node2){
+        if(node1 == null && node2 == null)
+            return true;
+            
+        if(node1!=null && node2!=null && node1.data == node2.data)
+            return (isSame(node1.left,node2.right) && isSame(node1.right,node2.left));
+    
+        return false;
+    }
+    // return true/false denoting whether the tree is Symmetric or not
+    public static boolean isSymmetric(Node root)
+    {
+        // add your code here;
+        return isSame(root,root);
+    }
