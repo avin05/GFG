@@ -1,0 +1,41 @@
+class GfG
+{
+    static boolean isOperator(char c) {
+        if (c == '+' || c == '-'
+                || c == '*' || c == '/'
+                || c == '^') {
+            return true;
+        }
+        return false;
+    }
+    
+    public static Node constructTree(char postfix[])
+    {
+        
+        Stack<Node> s = new Stack<>();
+        Node t,t1,t2;
+        
+        for(int i=0;i< postfix.length;i++){
+            
+            if(!isOperator(postfix[i])){
+                t= new Node(postfix[i]);
+                s.push(t);
+            }
+            else{
+                t = new Node(postfix[i]);
+                t1= s.pop();
+                t2= s.pop();
+                
+                t.right=t1;
+                t.left=t2;
+                
+                s.push(t);
+            }
+            
+        }
+        Node temp=s.peek();
+        return temp;
+        
+    }
+    
+}
