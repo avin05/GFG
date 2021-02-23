@@ -1,0 +1,26 @@
+int maxFrequency(String S)
+    {
+    	//code here.
+    	String prefix = "", suffix = "";
+    	int n=S.length();
+    	int start=0,end=n-1;
+    	int freq=0,maxfreq=1;
+    	
+    	while(start<=end){
+    	    prefix = S.substring(0,start+1);
+    	    suffix = S.substring(end);
+    	    
+    	    if(prefix.equals(suffix)){
+    	        freq = (n - S.replaceAll(prefix,"").length())/prefix.length();
+    	        
+    	        if(freq<maxfreq)
+    	            return maxfreq;
+    	       maxfreq=Math.max(freq,maxfreq);
+    	    }
+    	    start++;
+    	    end--;
+    	}
+    	
+    	return maxfreq;
+    	
+    }
