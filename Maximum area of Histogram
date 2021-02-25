@@ -1,0 +1,99 @@
+class Solution
+{
+    
+    // Function to calculate max rectangular area histogram
+    // hist[]: input array
+    // n: size of array
+    public static long[] nearestRight(long hist[], long n){
+        
+        long res[] = new long[(int)n];
+        Stack<Integer> st = new Stack<>();
+        
+        for(int i=(int)n-1;i>=0;i--){
+            
+            if(st.isEmpty()){
+                st.push(i);
+                res[i]=n;
+            }
+            
+            if(hist[st.peek()] < hist[i]){
+               res[i]=st.peek();
+               st.push(i);
+                
+            }
+               
+            if(hist[st.peek()] > hist[i]){
+                
+                
+                st.pop();
+                i++;
+                
+            }
+            
+          
+            
+         
+            
+            
+        }
+        return res;
+    }
+    
+    public static long[] nearestLeft(long hist[], long n){
+        
+        long res[] = new long[(int)n];
+        
+        Stack<Integer> st = new Stack<Integer>();
+        
+        for(int i=0;i<(int)n;i++){
+            
+            if(st.isEmpty()){
+                st.push(i);
+                res[i]=-1;
+            }
+            
+            if(hist[st.peek()] < hist[i]){
+                
+                res[i] = st.peek();
+                st.push(i);
+            }
+            
+            if(hist[st.peek()] > hist[i]){
+                
+                st.pop();
+                i--;
+            }
+            
+        }
+        
+        return res;
+    }
+    public static long getMaxArea(long hist[], long n)  {
+        // your code here
+        
+        long left[] = new long[(int)n];
+        long right[] = new long[(int)n];
+        
+        left = nearestLeft(hist,n);
+        right = nearestRight(hist, n);
+     
+        long max = -1;
+        
+        long ans[] = new long[(int)n];
+        
+        for(int i=0;i<(int)n;i++){
+            ans[i] = (right[i] - left[i])-1;
+            ans[i]=ans[i]*hist[i];
+            
+            if(ans[i] > max){
+                max=ans[i];
+            }
+        }
+         
+         return max;
+    }
+        
+}
+
+
+
