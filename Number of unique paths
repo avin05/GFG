@@ -1,0 +1,19 @@
+public static int nCr(int n,int r){
+    
+    int res = 1;
+    
+    for(int i=0;i<r;i++){
+        res*=(n-i);
+        res/=(i+1);
+    }
+    return res;
+}
+public static int NumberOfPath(int a, int b) {
+    //Your code here
+    int n=(a-1)+(b-1);
+    int r= Math.min((a-1),(b-1));
+    
+    int res = nCr(n,r);
+    
+    return res;
+}
