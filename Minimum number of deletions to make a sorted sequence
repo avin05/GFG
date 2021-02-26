@@ -1,0 +1,29 @@
+ public int fun(int[] arr,int n){
+        
+        int count[] = new int[n];
+        int ans =0;
+        
+        for(int k=0;k<n;k++){
+            count[k]=1;
+        }
+        
+        for(int i=1;i<n;i++){
+            for(int j=0;j<i;j++){
+                if(arr[i]>arr[j] && count[i]<=count[j])
+                    count[i]=count[j]+1;
+            }
+        } 
+        
+        for(int i=0;i<n;i++){
+            if(count[i]>ans)
+                ans=count[i];
+        }
+        
+        return ans;
+    }
+	public int minDeletions(int arr[], int n) 
+	{ 
+	   //code here.
+	   int res = fun(arr,n);
+	   return (n-res);
+	} 
