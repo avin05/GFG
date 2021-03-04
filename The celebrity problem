@@ -1,0 +1,31 @@
+ int celebrity(int M[][], int n){
+    	// code here 
+    	
+    	Stack<Integer> st = new Stack<Integer>();
+    	
+    	for(int i=0;i<n;i++){
+    	    st.push(i);
+    	}
+    	
+    	while(st.size()>=2){
+    	    int p = st.pop();
+    	    int q = st.pop();
+    	    
+    	    if(M[p][q] == 1){
+    	        st.push(q);
+    	    }
+    	    else
+    	        st.push(p);
+    	}
+    	
+    	int ans = st.pop();
+    	for(int j=0;j<n;j++){
+    	    if(j != ans){
+    	        if(M[j][ans] == 0 || M[ans][j]==1){
+    	            return -1;
+    	        }
+    	    }
+    	        
+    	}
+    	return ans;
+    }
