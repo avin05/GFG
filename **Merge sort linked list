@@ -1,0 +1,54 @@
+class Solution
+{
+    //Function to sort the given linked list using Merge Sort.
+    public static Node merge(Node a, Node b)
+    {
+        Node result = null;
+        /* Base cases */
+        if (a == null)
+            return b;
+        if (b == null)
+            return a;
+ 
+        /* Pick either a or b, and recur */
+        if (a.data <= b.data) {
+            result = a;
+            result.next = merge(a.next, b);
+        }
+        else {
+            result = b;
+            result.next = merge(a, b.next);
+        }
+        return result;
+    }
+     public static Node getMid(Node head)
+    {
+        if (head == null)
+            return head;
+ 
+        Node slow = head, fast = head;
+ 
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+    static Node mergeSort(Node head)
+    {
+        // add your code here
+        if(head == null || head.next== null){
+            return head;
+        }
+        
+        Node mid = getMid(head);
+        Node nextmid = mid.next;
+        mid.next=null;
+        
+        Node left = mergeSort(head);
+        Node right = mergeSort(nextmid);
+        
+        Node res = merge(left,right);
+        return res;
+    }
+}
